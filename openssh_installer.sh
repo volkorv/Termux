@@ -1,6 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # Проверка, выполняется ли скрипт в Termux
+echo "Проверка.."
 if [ -z "$TERMUX_VERSION" ]; then
     echo "Этот скрипт только на Termux."
     exit 1
