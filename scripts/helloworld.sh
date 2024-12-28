@@ -22,9 +22,8 @@ log_message "Начинаю установку OpenSSH.."
 read -p "Вы уверены, что хотите установить OpenSSH? (y/n): " confirm_install
 
 if [[ $confirm_install == [yY] ]]; then
-    pkg install openssh -y -q
     clear
-
+    pkg install openssh -y -q
     if [ $? -eq 0 ]; then
         log_message "Установка OpenSSH завершена успешно."
     else
