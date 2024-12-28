@@ -1,22 +1,26 @@
+#!/bin/bash
+
 function log_message {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
 }
 
 log_message "Проверка.."
+
+# Проверка на Termux
 if [ -z "$TERMUX_VERSION" ]; then
     clear
-    echo "Этот скрипт только на Termux."
+    log_message "Этот скрипт только на Termux."
     exit 1
 fi
+
 clear
 log_message "Termux $TERMUX_VERSION"
-read -p "Вы хотите обновить пакеты Termux? (y/n): " confirm_update
 
-if [[ $confirm_update == [yY] ]]; then
+read -p "Вы хотите обновить пакеты Termux? (y/n): " confirm_update
+if [[ $confirm_update =~ ^[yY]$ ]]; then
     clear
     log_message "Пакеты Termux обновляются.."
-    pkg update -y -q
-    pkg upgrade -y -q
+    pkg update -y -q && pkg upgrade -y -q
     clear
     log_message "Пакеты Termux обновлены."
 else
@@ -26,8 +30,7 @@ fi
 
 log_message "Начинаю установку OpenSSH.."
 read -p "Вы уверены, что хотите установить OpenSSH? (y/n): " confirm_install
-
-if [[ $confirm_install == [yY] ]]; then
+if [[ $confirm_install =~ ^[yY]$ ]]; then
     clear
     pkg install openssh -y -q
     if [ $? -eq 0 ]; then
