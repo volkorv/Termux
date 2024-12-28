@@ -10,8 +10,8 @@ if [ -z "$TERMUX_VERSION" ]; then
     echo "Этот скрипт только на Termux."
     exit 1
 fi
-
 clear
+log_message "Termux $TERMUX_VERSION"
 read -p "Вы хотите обновить пакеты Termux? (y/n): " confirm_update
 
 if [[ $confirm_update == [yY] ]]; then
