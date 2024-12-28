@@ -1,5 +1,11 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+# Проверка, выполняется ли скрипт в Termux
+if [ -z "$TERMUX_VERSION" ]; then
+    echo "Этот скрипт только на Termux."
+    exit 1
+fi
+
 function log_message {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
 }
