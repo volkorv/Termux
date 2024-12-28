@@ -4,7 +4,7 @@ function log_message {
 log_message "Обновляю пакеты Termux.."
 log_message "Начинаю установку OpenSSH..."
 
-if sudo apt-get update -qq && sudo apt-get install -y openssh-server -qq; then
+if apt-get update -qq && apt-get install -y openssh-server -qq; then
     log_message "Установка OpenSSH завершена успешно."
 else
     log_message "Ошибка при установке OpenSSH."
