@@ -13,6 +13,7 @@ if [[ $confirm_update == [yY] ]]; then
     clear
     log_message "Пакеты Termux обновлены."
 else
+    clear
     log_message "Обновление пакетов отменено, но OpenSSH может работать не совсем правильно."
 fi
 
