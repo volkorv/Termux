@@ -4,7 +4,7 @@ function log_message {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
 }
 
-read -p "Вы уверены, что хотите обновить пакеты Termux? (y/n): " confirm_update
+read -p "Вы хотите так-же обновить пакеты Termux? (y/n): " confirm_update
 
 if [[ $confirm_update == [yY] ]]; then
     log_message "Пакеты Termux обновляются.."
