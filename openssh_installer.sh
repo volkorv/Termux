@@ -1,5 +1,3 @@
-#!/data/data/com.termux/files/usr/bin/bash
-
 function log_message {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
 }
