@@ -33,4 +33,3 @@ if [[ $confirm_install == [yY] ]]; then
 else
     log_message "Установка OpenSSH отменена."
 fi
-clear
