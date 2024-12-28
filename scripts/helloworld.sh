@@ -1,10 +1,12 @@
 function log_message {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
 }
-log_message "Обновляю пакеты Termux.."
-log_message "Начинаю установку OpenSSH..."
+log_message "Пакеты Termux обновляются.."
+pkg update;pkg upgrade
+log_message "Начинаю установку OpenSSH.."
+pkg install openssh -y -qq
 
-if apt-get update -qq && apt-get install -y openssh-server -qq; then
+if [ $? -eq 0 ]; then
     log_message "Установка OpenSSH завершена успешно."
 else
     log_message "Ошибка при установке OpenSSH."
