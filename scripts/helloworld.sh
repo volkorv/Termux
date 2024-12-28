@@ -4,12 +4,13 @@ function log_message {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
 }
 
-read -p "Вы хотите так-же обновить пакеты Termux? (y/n): " confirm_update
+read -p "Вы хотите обновить пакеты Termux? (y/n): " confirm_update
 
 if [[ $confirm_update == [yY] ]]; then
+    clear
     log_message "Пакеты Termux обновляются.."
-    pkg update -y -qq
-    pkg upgrade -y -qq
+    pkg update -y -q
+    pkg upgrade -y -q
     clear
     log_message "Пакеты Termux обновлены."
 else
@@ -21,7 +22,7 @@ log_message "Начинаю установку OpenSSH.."
 read -p "Вы уверены, что хотите установить OpenSSH? (y/n): " confirm_install
 
 if [[ $confirm_install == [yY] ]]; then
-    pkg install openssh -y -qq
+    pkg install openssh -y -q
     clear
 
     if [ $? -eq 0 ]; then
@@ -32,3 +33,4 @@ if [[ $confirm_install == [yY] ]]; then
 else
     log_message "Установка OpenSSH отменена."
 fi
+clear
