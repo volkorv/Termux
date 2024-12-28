@@ -2,7 +2,7 @@ function log_message {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
 }
 log_message "Пакеты Termux обновляются.."
-pkg update;pkg upgrade
+pkg update -y -qq;pkg upgrade -y -qq
 log_message "Начинаю установку OpenSSH.."
 pkg install openssh -y -qq
 
