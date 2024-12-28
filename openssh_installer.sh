@@ -1,16 +1,16 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-# Проверка, выполняется ли скрипт в Termux
-echo "Проверка.."
-if [ -z "$TERMUX_VERSION" ]; then
-    echo "Этот скрипт только на Termux."
-    exit 1
-fi
-
 function log_message {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
 }
 
+log_message "Проверка.."
+if [ -z "$TERMUX_VERSION" ]; then
+    clear
+    echo "Этот скрипт только на Termux."
+    exit 1
+fi
+clear
 read -p "Вы хотите обновить пакеты Termux? (y/n): " confirm_update
 
 if [[ $confirm_update == [yY] ]]; then
